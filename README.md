@@ -1,12 +1,13 @@
 # Summary
 This plugin calculates the given expression using the Google Suggest API.
 
-# require
-* webapi-vim[^1] (namespace changed ver.)
+# Require
+* webapi-vim(namespace changed ver.)
 https://github.com/mattn/webapi-vim
-[^1]:webapi-vim require curl command http://curl.haxx.se/ .
+* webapi-vim requires curl command.
+http://curl.haxx.se/
 
-# usage
+# Usage
 Use like this.
 :GCalc 1+1
 \# => 2
