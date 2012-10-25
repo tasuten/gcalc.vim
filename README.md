@@ -2,7 +2,7 @@
 This plugin calculates the given expression using the Google Suggest API.
 
 # Require
-* webapi-vim(namespace changed ver.)
+* webapi-vim
 https://github.com/mattn/webapi-vim
 * webapi-vim requires curl command.
 http://curl.haxx.se/
