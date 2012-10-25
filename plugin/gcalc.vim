@@ -2,14 +2,14 @@ scriptencoding utf-8
 function! GCalc(...)
   let word = a:1
 
-  let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#escape(word))
+  let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#encodeURI(word))
 
-  if !exists("dom.find('calculator_suggestion').attr")
+  if !exists("dom.find('suggestion').attr")
     echoerr "GCcalc: Invailed formula format."
     return
   endif
 
-  echo dom.find('calculator_suggestion').attr['data']
+  echo dom.find('suggestion').attr['data']
 
 endfunction
 
