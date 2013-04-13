@@ -1,27 +1,22 @@
-scriptencoding utf-8
-function! GCalc(...)
-  let word = a:1
+" GCalc.vim
 
-  let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#encodeURI(word))
+if exists('g:loaded_gcalc')
+  finish
+endif
+let g:loaded_gcalc = 1
 
-  if !exists("dom.find('suggestion').attr")
-    echoerr "GCcalc: Invailed formula format."
-    return
-  endif
+let s:save_cpo = &cpo
+set cpo&vim
 
-  echo dom.find('suggestion').attr['data']
 
-endfunction
+if !exists(':GCalc')
+  command! -nargs=+ -complete=custom,gcalc#complete GCalc
+      \ call gcalc#gcalc(<q-args>)
+endif
 
-" Very Simple Completion
-function! GCalcComp(ArgLead, CmdLine, CursorPos)
-  return "
-        \binary\n
-        \octal\n
-        \decimal\n
-        \hexdecimal\n
-        \"
-endfunction
 
-command! -nargs=+ -complete=custom,GCalcComp GCalc call GCalc(<q-args>)
+let &cpo = s:save_cpo
+unlet s:save_cpo
 
+" vim: set fdm=marker ts=2 sw=2 sts=2 et:
+" __END__
