@@ -10,7 +10,7 @@ function! gcalc#gcalc(...)
   let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#encodeURI(word))
 
   if !exists("dom.find('suggestion').attr")
-    echoerr "GCcalc: Invailed formula format."
+    echoerr "GCcalc: Invalid formula format."
     return
   endif
 
