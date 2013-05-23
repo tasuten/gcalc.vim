@@ -9,12 +9,13 @@ function! gcalc#gcalc(...)
 
   let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#encodeURI(word))
 
-  if !exists("dom.find('suggestion').attr")
+  if !exists("dom.find('suggestion').attr") || dom.childNode('CompleteSuggestion').childNode('num_queries') != {}
+
     echoerr "GCcalc: Invalid formula format."
     return
   endif
 
-  echo dom.find('suggestion').attr['data']
+ echo dom.find('suggestion').attr['data']
 
 endfunction
 
