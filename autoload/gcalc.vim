@@ -16,7 +16,7 @@ function! gcalc#gcalc(...)
     return
   endif
 
- echo dom.find('suggestion').attr['data']
+  echo dom.childNode('CompleteSuggestion').childNode('suggestion').attr['data']
 
 endfunction
 
