@@ -4,6 +4,12 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
+function! s:print_error(msg)
+  echohl ErrorMsg
+  echomsg a:msg
+  echohl None
+endfunction
+
 function! gcalc#gcalc(...)
   let word = a:1
 
@@ -12,7 +18,7 @@ function! gcalc#gcalc(...)
   if !exists("dom.childNode('CompleteSuggestion').childNode('suggestion').attr")
         \ || dom.childNode('CompleteSuggestion').childNode('num_queries') != {}
 
-    echoerr "GCcalc: Invalid formula format."
+    call s:print_error('GCcalc: Invalid formula format.')
     return
   endif
 
