@@ -19,3 +19,17 @@ Use like this.
     :GCalc the answer to life the universe and everything
     # => 42
 
+# Known problem
+These problem are caused by Google Suggest API's data format.
+This plugin print first element of Google Suggest API's suggest data,
+so sometimes this plugin print unwished result.
+
+e.g.
+
+* a -> 'amazon'
+    * It must be error
+* 1/4 -> '1/4-20unc'
+    * It must be 0.25
+    * You can avoid this problem by doing like this(add space)
+    * 1 / 4 -> '0.25'
+
