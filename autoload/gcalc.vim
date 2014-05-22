@@ -15,9 +15,7 @@ function! gcalc#gcalc(...)
 
   let dom = webapi#xml#parseURL('http://www.google.co.jp/complete/search?output=toolbar&q='.webapi#http#encodeURI(word))
 
-  if !exists("dom.childNode('CompleteSuggestion').childNode('suggestion').attr")
-        \ || dom.childNode('CompleteSuggestion').childNode('num_queries') != {}
-
+  if !exists("dom.childNode('CompleteSuggestion').childNode('suggestion').attr['data']")
     call s:print_error('GCcalc: Invalid formula format.')
     return
   endif
