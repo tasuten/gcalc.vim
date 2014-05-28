@@ -19,8 +19,8 @@ Use like this.
     :GCalc the answer to life the universe and everything
     # => 42
 
-# Known problem
-These problem are caused by Google Suggest API's data format.
+# Known problems
+These problems are caused by Google Suggest API's data format.
 This plugin print first element of Google Suggest API's suggest data,
 so sometimes this plugin print unwished result.
 
